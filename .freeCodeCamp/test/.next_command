@@ -37,3 +37,12 @@ git remote -v
 git remote set-url origin https://github.com/darhensu/universe-database.git
 git remote -v
 git add .
+git status
+git commit -m "universe.sql"
+git push origin main
+git remote set-url origin "https://darhensu@github.com/darhensu/universe-database.git"
+git config -l
+git push origin main
+git remote set-url origin https://github.com/darhensu/universe-database.git
+git push origin main
+psql --username=freecodecamp --dbname=universe
