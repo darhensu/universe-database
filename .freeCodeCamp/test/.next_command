@@ -46,3 +46,5 @@ git push origin main
 git remote set-url origin https://github.com/darhensu/universe-database.git
 git push origin main
 psql --username=freecodecamp --dbname=universe
+pg_dump -cC --inserts -U freecodecamp universe > universe.sql
+git add .

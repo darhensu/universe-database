@@ -200,7 +200,7 @@ ALTER SEQUENCE public.star_star_id_seq OWNED BY public.star.star_id;
 --
 
 CREATE TABLE public.universe_objects (
-    object_id integer NOT NULL,
+    universe_objects_id integer NOT NULL,
     name character varying(255) NOT NULL,
     description text NOT NULL,
     object_size integer NOT NULL,
@@ -229,7 +229,7 @@ ALTER TABLE public.universe_objects_object_id_seq OWNER TO freecodecamp;
 -- Name: universe_objects_object_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.universe_objects_object_id_seq OWNED BY public.universe_objects.object_id;
+ALTER SEQUENCE public.universe_objects_object_id_seq OWNED BY public.universe_objects.universe_objects_id;
 
 
 --
@@ -261,10 +261,10 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 
 
 --
--- Name: universe_objects object_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: universe_objects universe_objects_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.universe_objects ALTER COLUMN object_id SET DEFAULT nextval('public.universe_objects_object_id_seq'::regclass);
+ALTER TABLE ONLY public.universe_objects ALTER COLUMN universe_objects_id SET DEFAULT nextval('public.universe_objects_object_id_seq'::regclass);
 
 
 --
@@ -292,6 +292,17 @@ INSERT INTO public.moon VALUES (15, 'Titan', 16, 2575.50, true, 1221900.00);
 INSERT INTO public.moon VALUES (16, 'Enceladus', 16, 252.10, true, 238020.00);
 INSERT INTO public.moon VALUES (17, 'Triton', 17, 1353.40, true, 354760.00);
 INSERT INTO public.moon VALUES (18, 'Charon', 18, 603.60, true, 19500.00);
+INSERT INTO public.moon VALUES (19, 'Thanos', 19, 7102.41, false, 1743822.00);
+INSERT INTO public.moon VALUES (20, 'Tias', 19, 7572.41, false, 1748722.00);
+INSERT INTO public.moon VALUES (21, 'Vamos', 20, 4102.41, false, 1767382.00);
+INSERT INTO public.moon VALUES (22, 'Delirious', 21, 502.41, true, 17676522.00);
+INSERT INTO public.moon VALUES (23, 'Calibre', 22, 302.41, false, 3822.00);
+INSERT INTO public.moon VALUES (24, 'Luna', 13, 772.41, true, 8722.00);
+INSERT INTO public.moon VALUES (25, 'Iara', 15, 41602.41, false, 9850.00);
+INSERT INTO public.moon VALUES (26, 'Adoras', 18, 8542.41, false, 8766522.00);
+INSERT INTO public.moon VALUES (27, 'Lui', 22, 39498.41, true, 78822.00);
+INSERT INTO public.moon VALUES (28, 'Targayen', 23, 97398.41, false, 985522.00);
+INSERT INTO public.moon VALUES (29, 'Angel', 21, 1.00, true, 1.00);
 
 
 --
@@ -321,6 +332,7 @@ INSERT INTO public.star VALUES (2, 'Sirius', 1, 9940, false, 242.00);
 INSERT INTO public.star VALUES (3, 'Vega', 1, 9600, false, 455.00);
 INSERT INTO public.star VALUES (4, 'Proxima Centauri', 2, 3050, false, 860.00);
 INSERT INTO public.star VALUES (5, 'Alpha Centauri', 3, 5790, false, 4800.00);
+INSERT INTO public.star VALUES (6, 'Twinkle', 3, 8765, true, 3451.00);
 
 
 --
@@ -344,7 +356,7 @@ SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
 -- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.moon_moon_id_seq', 18, true);
+SELECT pg_catalog.setval('public.moon_moon_id_seq', 29, true);
 
 
 --
@@ -358,7 +370,7 @@ SELECT pg_catalog.setval('public.planet_planet_id_seq', 24, true);
 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.star_star_id_seq', 5, true);
+SELECT pg_catalog.setval('public.star_star_id_seq', 6, true);
 
 
 --
@@ -445,7 +457,7 @@ ALTER TABLE ONLY public.universe_objects
 --
 
 ALTER TABLE ONLY public.universe_objects
-    ADD CONSTRAINT universe_objects_pkey PRIMARY KEY (object_id);
+    ADD CONSTRAINT universe_objects_pkey PRIMARY KEY (universe_objects_id);
 
 
 --
